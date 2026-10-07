@@ -1,4 +1,11 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# GigaBox Mobile Application
+
+> High-performance, offline-resilient e-commerce mobile app built with React Native 0.87, React 19, TypeScript, Redux Toolkit, and TanStack React Query.
+
+📖 **Comprehensive Technical Documentation:** See [PROJECT_DOCUMENTATION.md](file:///Users/nikhilgupta/Desktop/GigaBoxAssignment/GigaBoxApp/PROJECT_DOCUMENTATION.md) for full architectural diagrams, state management breakdown, build optimizations, folder structure, and testing guide.  
+⚡ **Performance & Offline Strategy:** See [PERFORMANCE.md](file:///Users/nikhilgupta/Desktop/GigaBoxAssignment/GigaBoxApp/PERFORMANCE.md) for rendering benchmarks and memory optimizations.
+
+---
 
 # Getting Started
 
