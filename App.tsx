@@ -1,38 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { LogBox, StyleSheet, View } from 'react-native';
+import AppProviders from './src/app/providers/AppProviders';
+import RootNavigator from './src/app/navigation/RootNavigator';
+import { NetworkErrorScreen } from './src/features/network/screens/NetworkErrorScreen';
+import { useNetwork } from './src/services/network/NetworkContext';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+LogBox.ignoreAllLogs(true);
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+const AppContent: React.FC = () => {
+  const { isOffline, checkConnectivity } = useNetwork();
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <RootNavigator />
+      {isOffline && (
+        <View style={styles.networkErrorOverlay}>
+          <NetworkErrorScreen onRetry={checkConnectivity} />
+        </View>
+      )}
     </View>
+  );
+};
+
+export default function App() {
+  return (
+    <AppProviders>
+      <AppContent />
+    </AppProviders>
   );
 }
 
@@ -40,6 +34,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  networkErrorOverlay: {
+    ...StyleSheet.absoluteFill,
+    zIndex: 999999,
+    elevation: 999999,
+  },
 });
 
-export default App;

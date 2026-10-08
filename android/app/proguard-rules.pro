@@ -8,3 +8,12 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+-keep class com.facebook.react.** { *; }
+-keep class com.facebook.hermes.** { *; }
+-keep class com.facebook.jni.** { *; }
+-keep class com.swmansion.rnscreens.** { *; }
+-keep class com.th3rdwave.safeareacontext.** { *; }
+-keep class com.reactnativecommunity.asyncstorage.** { *; }
+-keep class com.reactnativecommunity.netinfo.** { *; }
+-keep class com.airbnb.android.react.maps.** { *; }
+-dontwarn com.airbnb.android.react.maps.**

@@ -23,6 +23,10 @@ target 'GigaBoxApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Google Maps support for react-native-maps
+  pod 'GoogleMaps', '9.4.0'
+  pod 'Google-Maps-iOS-Utils', '6.1.0'
+
   post_install do |installer|
     react_native_post_install(
       installer,
